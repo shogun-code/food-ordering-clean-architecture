@@ -5,23 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.shogun</groupId>
-        <artifactId>payment-service</artifactId>
+        <artifactId>food-ordering-clean-architecture</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>payment-domain</artifactId>
+    <artifactId>restaurant-service</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>payment-domain-core</module>
-        <module>payment-application-service</module>
+        <module>restaurant-container</module>
     </modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>io.shogun</groupId>
-            <artifactId>common-domain</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
 
 </project>

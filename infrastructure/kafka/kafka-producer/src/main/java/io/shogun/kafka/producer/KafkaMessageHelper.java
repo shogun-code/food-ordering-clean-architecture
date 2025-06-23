@@ -15,17 +15,13 @@ import java.util.function.BiConsumer;
 @Component
 public class KafkaMessageHelper {
 
-    public <T> ListenableFutureCallback<SendResult<String, T>>
+    public <T> BiConsumer<SendResult<String, T>, Throwable>
     getKafkaCallback(String responseTopicName, T avroModel, String orderId, String avroModelName) {
-        return new ListenableFutureCallback<SendResult<String, T>>() {
-            @Override
-            public void onFailure(Throwable ex) {
+        return (result, ex) -> {
+            if (ex != null) {
                 log.error("Error while sending " + avroModelName +
                         " message {} to topic {}", avroModel.toString(), responseTopicName, ex);
-            }
-
-            @Override
-            public void onSuccess(SendResult<String, T> result) {
+            } else {
                 RecordMetadata metadata = result.getRecordMetadata();
                 log.info("Received successful response from Kafka for order id: {}" +
                                 " Topic: {} Partition: {} Offset: {} Timestamp: {}",
