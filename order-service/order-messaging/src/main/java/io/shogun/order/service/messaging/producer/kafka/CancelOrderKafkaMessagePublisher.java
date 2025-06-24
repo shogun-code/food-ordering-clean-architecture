@@ -1,18 +1,18 @@
 package io.shogun.order.service.messaging.producer.kafka;
 
+import io.shogun.domain.event.publisher.DomainEventPublisher;
 import io.shogun.kafka.order.avro.model.PaymentRequestAvroModel;
 import io.shogun.kafka.producer.KafkaMessageHelper;
 import io.shogun.kafka.producer.service.KafkaProducer;
 import io.shogun.order.service.domain.config.OrderServiceConfigData;
 import io.shogun.order.service.domain.event.OrderCancelledEvent;
-import io.shogun.order.service.domain.ports.output.message.publisher.payment.OrderCancelledPaymentRequestMessagePublisher;
 import io.shogun.order.service.messaging.mapper.OrderMessagingDataMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class CancelOrderKafkaMessagePublisher implements OrderCancelledPaymentRequestMessagePublisher {
+public class CancelOrderKafkaMessagePublisher implements DomainEventPublisher<OrderCancelledEvent> {
 
     private final OrderMessagingDataMapper orderMessagingDataMapper;
     private final OrderServiceConfigData orderServiceConfigData;
