@@ -14,12 +14,18 @@
     <dependencies>
         <dependency>
             <groupId>io.shogun</groupId>
+            <artifactId>outbox</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.shogun</groupId>
             <artifactId>kafka-model</artifactId>
         </dependency>
         <dependency>
             <groupId>io.shogun</groupId>
             <artifactId>kafka-config-data</artifactId>
         </dependency>
+
         <dependency>
             <groupId>io.shogun</groupId>
             <artifactId>order-domain-core</artifactId>
